@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>POO = language orienté objet</h1>
+<h1>POO = programmation orienté objet</h1>
 <p>une <strong> maniere de codé</strong> dans un <strong> d objet environement</strong></p>
 <p>Faire de son<strong> site un ensemble d'objet</strong> qui <strong>interagisse</strong> entre eux</p>
 
