@@ -9,7 +9,7 @@
  <h2>exemple un cree une classe et un objet</h2>   
 <?php 
 // Creation d'une classe et manipulation 
-class exemple    //commence majuscule
+class Exemple    //commence majuscule
 {
     private $_force;        //CREATION attribut
     private $_localisation;
@@ -26,7 +26,7 @@ class exemple    //commence majuscule
         echo 'je suis un personnage';
     }
 }
-    $ex =new exemple;  //CREATION OBJET
+    $ex =new Exemple;  //CREATION OBJET
     $ex->parler();     // APPEL METHODE 
 ?>
 
@@ -38,7 +38,7 @@ class exemple    //commence majuscule
 class Personnages   //commence majuscule
 {
     private $_force=20;
-    private $_localisation;
+    private $_localisation;         
     private $_experience = 0;
     private $_degat=0;
     
@@ -48,7 +48,7 @@ class Personnages   //commence majuscule
     public function afficheExp(){
         echo $this->_experience;      // ici on a la pseudo variable this->  //permet d acceder au attribut de l objet au quel il est appele
     }
-    public function frapper($xx){
+    public function frapper(Personnages $xx){ //personnages = obligation de passer un objet de type Personnage dans les parametre   // $xx valeur quand on declare la methode
         $xx->_degat += $this->_force;     
     }
 }
@@ -61,7 +61,7 @@ $LeRoiFou->gagnerExp();      // appelle la fonction gagnerExp() ET rajoute 1 a  
 $LeRoiFou->afficheExp();    
 ?>
 
-<h2>implementer d autre methode</h2>
+
 <?php 
 
 $persoMage = new Personnages;
@@ -69,9 +69,14 @@ $persoGuerrier = new Personnages;
 
 //$persomage doit frapper $persoguerrier 
 
-$persoMage->frapper($persoGuerrier);
+$persoMage->frapper($persoMage);   //obligation de passer un objet Personnages grace au parametre de la fonction frapper
 $persoMage->gagnerExp();
+
+$persoGuerrier->frapper($persoMage);
+$persoMage->gagnerExp();
+
 ?>
+
 
 </body>
 </html>
