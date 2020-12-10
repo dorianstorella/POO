@@ -8,9 +8,16 @@
 <body>
   <h2>Les accesseurs et mutateurs</h2>
   <p>acceder a un attribut : <strong>accesseur</strong></p>
+  <p>changer la <strong>valeur</strong> de l'<strong>attribut</strong> a </p>
+  <?php 
+class exemple {
+    private $_force;
+    private $_experience;
+    private $_degats;
+}
+  ?>
+  
   <?php
-
-
 class Personnages
 {
   private $_force;
@@ -33,7 +40,7 @@ class Personnages
     if (!is_int($force)) // S'il ne s'agit pas d'un nombre entier.
     {
       trigger_error('La force d\'un personnage doit être un nombre entier', E_USER_WARNING);
-      return;
+      return; 
     }
     
     if ($force > 100) // On vérifie bien qu'on ne souhaite pas assigner une valeur supérieure à 100.
@@ -60,7 +67,7 @@ class Personnages
       return;
     }
     
-    $this->_experience = $experience;
+    $this->_experience = $experience; 
   }
   
         
@@ -75,7 +82,7 @@ class Personnages
   // Ceci est la méthode degats() : elle se charge de renvoyer le contenu de l'attribut $_degats.
   public function degats()  
   {
-    return $this->_degats;   //ACCESSEUR        
+    return $this->_degats;   //ACCESSEUR     MAIS ECHO FONCTIONNE    
   }
         
   // Ceci est la méthode force() : elle se charge de renvoyer le contenu de l'attribut $_force.
@@ -93,7 +100,7 @@ class Personnages
 $perso1 = new Personnages;  // Un premier personnage
 $perso2 = new Personnages;  // Un second personnage
 
-$perso1->setForce(10);
+$perso1->setForce(100);
 $perso1->setExperience(2);
 
 $perso2->setForce(80);

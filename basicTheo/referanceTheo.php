@@ -39,5 +39,19 @@
 <li>On déclare une classe avec le mot-clé <strong>class</strong> suivi du nom de la classe, et enfin deux accolades ouvrantes et fermantes qui encercleront la liste des attributs et méthodes.</li>
 </ul>
 
+
+<h2>attribut constructeur</h2>
+<ul>
+<li>c est un methode qui est inscrite comme ceci :__construct() </li>
+<li>il sert pour une connexion BDD ou quand des attribut doivent etre initialisée</li>
+<li>executé dés la creation de l objet donc aucune valeur doit etre retournée</li>
+</ul>
+
+<h2>auto-chargement de classes</h2>
+<ul>
+<li>ou peut faire <strong>un fichier</strong> par <strong>classe</strong> pour organisation</li>
+<li>Avec<strong>plusieurs</strong> quinzaine de <strong>classe</strong>on peu faire un fonction </li>
+<li></li>
+</ul>
 </body>
 </html>
