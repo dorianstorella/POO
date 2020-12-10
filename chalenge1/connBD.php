@@ -7,6 +7,7 @@ class connexion
         try
        {
             $this->conn = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8", $user, $pass);
+            echo 'co reussie';
         }
         catch(Exception $e)
         {
@@ -16,11 +17,11 @@ class connexion
     public function countTable($dbQUERY)
     {
         $stmt = $this->conn->prepare($dbQUERY);
-        $stmt->exec();
+        $stmt->execute();
         return $stmt->rowCount();
 
     }
    
 
 }
-    $co=new connexion("poo","root","");
+    //$co=new connexion("poo","root","");
