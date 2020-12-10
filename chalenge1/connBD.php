@@ -14,11 +14,7 @@ class connexion
         }
     }
     
-    function countTable($dbQuery){
-        $query = $this->db->prepare($dbQuery);
-        $query->execute();
-        return $query->rowCount();
-    }
+   
 
 }
     $co=new connexion("poo","root","");
