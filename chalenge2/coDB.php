@@ -1,10 +1,15 @@
 <?php 
-class connexion {
-    public static function db($dbname, $user , $pass)
+class Connexion 
+{
+    private $id_post;
+    private $title_post;
+    private $content_post;
+    private $conn;  
+    public function __construct($dbname, $user , $pass)
     {
         try
        {
-            $this->conn = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8", $user, $pass);
+            $this->con = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8", $user, $pass);
             echo 'co reussie';
         }
         catch(Exception $e)
@@ -12,17 +17,15 @@ class connexion {
             die('Error : '.$e->getMessage());
         }
     }
-    }
-}
-class post 
-{
-    private $id_post;
-    private $title_post;
-    private $content_post;
     
-    public function addPost()
-    {
 
+    
+    
+    public function addPost($post, $id_post)
+    {
+       $stmt = $this->conn->prepare("SELECT INTO jeux_video($id_post) values ($post)");
+       $stmt ->excute();      
+       return $this->stmt;
     }
 
     public function removePoste()
@@ -32,6 +35,8 @@ class post
 
     public function findAllPost()
     {
-        
+
     }
+
+
 }
