@@ -2,6 +2,7 @@
 class Connection 
 {
     private $db;
+    
     public function __construct($dbname, $user , $pass)
     {
         try
@@ -30,7 +31,7 @@ class Post
     public function __construct($id,$title,$content)
     {
         $this->id_post = $id;
-        $this->tittle_post = $title;
+        $this->title_post = $title;
         $this->content_post = $content;
     }
 
@@ -39,20 +40,21 @@ class Post
         $connect = Connection::connect("poo","root","");
         $stmt = $connect->prepare("INSERT INTO clients VALUES (NULL, :post, :content)");
         $stmt->bindParam(':post', $this->title_post);
+        $stmt->bindParam(':content', $this->content_post);
         echo $stmt->execute();
     }
 
-    public function removePoste()
+    static function removePost($id)
     {
         $connect = Connection::connect("poo","root","");
         $stmt = $connect->prepare("DELETE FROM clients WHERE id_post=".$id);
         $stmt->execute();
     }
 
-    public function findAllPost()
+    static function findAllPost()
     {
-        $allPost=[];
-        $connect = Connection::connect("becode", "root" , ""); 
+        $allPost = [];
+        $connect = Connection::connect("poo", "root" , ""); 
         $stmt= $connect->prepare("SELECT * FROM clients");
         $stmt->execute();
         while($fetch = $stmt->fetch())
@@ -64,7 +66,7 @@ class Post
     
     function getId()
     {
-        return $this->stmt;
+        return $this->id_post;
     }
     
 
@@ -79,3 +81,4 @@ class Post
         return $this->content_post;  
     }
 }
+?>

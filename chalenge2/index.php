@@ -1,8 +1,8 @@
 <?php
 require 'coDB.php';
-/*$co = new Connection; 
-$co->con("becode","root","");
-*/
+$co = new Connection("poo","root",""); 
+
+
 
 if (isset($_POST['title'],$_POST['content'])){
     $onePost = new Post(null,$_POST['title'],$_POST['content']);
@@ -19,7 +19,6 @@ if ($_POST['submitDelete']=='delete'){
 <head>
 </head>
 <body>
-	<h1>Add post</h1>
 	<form action="" method="POST">
         <label for="title">Title:</label>
         <input type="text" name="title">
