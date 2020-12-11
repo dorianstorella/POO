@@ -1,4 +1,9 @@
 <?php
 require 'coDB.php';
-$co = new Connexion("becode","root",""); 
-echo $co->addPost("marcel","nom");
+/*$co = new Connection; 
+$co->con("becode","root","");
+*/
+if (isset($_POST['id'])){
+$new = new Post($_POST['id']);
+$new->addPost();
+}

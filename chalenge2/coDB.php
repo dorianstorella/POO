@@ -1,15 +1,12 @@
 <?php 
-class Connexion 
+class Connection 
 {
-    private $id_post;
-    private $title_post;
-    private $content_post;
-    private $conn;  
-    public function __construct($dbname, $user , $pass)
+     
+    public static function con($dbname, $user , $pass)
     {
         try
        {
-            $this->con = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8", $user, $pass);
+           $connect = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8", $user, $pass);
             echo 'co reussie';
         }
         catch(Exception $e)
@@ -18,14 +15,28 @@ class Connexion
         }
     }
     
+}
+ 
 
+class Post 
+{
+    private $id_post;
+    private $title_post;
+    private $content_post;
     
+    public function __construct($id){
+        $this ->id_post = $id;
+       
+    } 
     
-    public function addPost($post, $id_post)
-    {
-       $stmt = $this->conn->prepare("SELECT INTO jeux_video($id_post) values ($post)");
-       $stmt ->excute();      
-       return $this->stmt;
+    public function addPost()
+    {   
+      
+        $co = Connection::con("becode", "root" , ""); 
+        $stmt = $co->prepare("INSERT INTO jeux_video (possesseur) values (:post)");
+        $stmt->bindParam(':post',$this->id_post);
+        echo $stmt->execute();
+        
     }
 
     public function removePoste()
@@ -37,6 +48,8 @@ class Connexion
     {
 
     }
-
-
+    function getid()
+    {
+        return $this->id_post;
+    }
 }
