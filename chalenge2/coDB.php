@@ -1,7 +1,9 @@
 <?php 
 class Connection 
 {
-     
+    private $dbname;
+    private $user;
+    private $pass;  
     public static function con($dbname, $user , $pass)
     {
         try
@@ -24,19 +26,12 @@ class Post
     private $title_post;
     private $content_post;
     
-    public function __construct($id){
-        $this ->id_post = $id;
-       
-    } 
     
     public function addPost()
     {   
       
-        $co = Connection::con("becode", "root" , ""); 
-        $stmt = $co->prepare("INSERT INTO jeux_video (possesseur) values (:post)");
-        $stmt->bindParam(':post',$this->id_post);
-        echo $stmt->execute();
         
+       
     }
 
     public function removePoste()
@@ -44,12 +39,15 @@ class Post
 
     }
 
-    public function findAllPost()
+    public function findAllPost($id_post)
     {
-
+        $co = Connection::con("becode", "root" , ""); 
+       
+        $stmt= $co->prepare("SELECT (possesseur) FROM (jeux_video)");
+        $stmt->execute();
     }
     function getid()
     {
-        return $this->id_post;
+        return $this->stmt;
     }
 }
