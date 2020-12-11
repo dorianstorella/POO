@@ -59,7 +59,7 @@ class Post
         $stmt->execute();
         while($fetch = $stmt->fetch())
         {
-            $allPost[] = new Post($fetch['id_post'],$fetch['title_post'],$fetch['content_post']);
+            $allPost[] = new Post($fetch['id'],$fetch['firstname'],$fetch['secondname']);
         }
         return $allPost;
     }
